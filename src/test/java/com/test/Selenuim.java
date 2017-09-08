@@ -34,7 +34,8 @@ import java.util.concurrent.TimeUnit;
 public class Selenuim {
 
     public static void main(String[] args) throws IOException {
-        String targetUrl = "http://www.gsxt.gov.cn/corp-query-homepage.html";
+        String targetUrl = "http://www.gsxt.gov.cn/index.html";
+//        String targetUrl = "http://www.baidu.com";
         String kw = "keyword";
         String su = "btn_query";
         String keyword = "微位";
@@ -45,7 +46,6 @@ public class Selenuim {
         long i = Calendar.getInstance().getTimeInMillis();
         int failCount = 0;
         int ts = 0;
-
         driver.get(targetUrl);
 
         WebDriverWait wait = new WebDriverWait(driver, 30);//显示等待
@@ -112,9 +112,9 @@ public class Selenuim {
             action.clickAndHold(gt_slider_knob).moveByOffset(ds, 0).perform();
             s+=ds;
             ds+=1;
-            sleep(1);
+            //sleep(1);
         }
-        sleep(500);
+        //sleep(500);
         int ls = ts-s;
 
         action.clickAndHold(gt_slider_knob).moveByOffset(ls, 0).perform();
@@ -140,7 +140,7 @@ public class Selenuim {
         int y = p.getY();
 
         BufferedImage dest = img.getSubimage(x, y, width, height);
-        //存为png格式
+        //存为jpg格式
         ImageIO.write(dest, "jpg", screen);
         return screen;
     }
